@@ -1,5 +1,7 @@
 FROM ubuntu:18.04
 
+LABEL author="David Stark"
+
 RUN apt-get update && \
       apt-get upgrade -qy
 
