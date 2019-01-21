@@ -1,0 +1,16 @@
+---
+pipeline:
+
+  push:
+    image: plugins/gcr
+    repo: "${DRONE_REPO_OWNER}/${DRONE_REPO_NAME}"
+    tags:
+      - latest
+      - "${DRONE_COMMIT:0:8}"
+      - "branch-${DRONE_BRANCH}"
+      - "build-${DRONE_BUILD_NUMBER}"
+    secrets: [google_credentials]
+
+    when:
+      branch: [master]
+      event: [push]
